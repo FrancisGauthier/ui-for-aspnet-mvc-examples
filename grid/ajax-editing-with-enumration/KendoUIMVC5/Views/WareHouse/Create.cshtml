@@ -53,7 +53,7 @@
             console.log("event :: change(" + kendo.stringify(e.data) + ")");
         },
         onSave: function (e) {
-            viewModel.inputValue = "toto1";
+            this.set("inputValue", kendo.stringify(e.data.products._data));
             console.log("event :: save(" + kendo.stringify(e.values, null, 4) + ")");
         },
         products: new kendo.data.DataSource({

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Newtonsoft.Json;
 namespace KendoUIMVC5.Controllers
 {
     public class WareHouseController : Controller
@@ -23,7 +23,8 @@ namespace KendoUIMVC5.Controllers
         [HttpPost]
         public ActionResult Create(WareHouse house)
         {
-            if(ModelState.IsValid)
+            house.Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(house.Toto);
+            if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");
             }
